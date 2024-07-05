@@ -1,8 +1,8 @@
 # API Request Showcase
 
-## Warning ⚠️
+[!Warning]
 
-**IMPORTANT: Currently, the code snippets for `KtorExample.kt` and `KtorfitExample.kt` run and return the desired image URL, but output a Kotlin compiler plugin error. I am about to investigate this on [this issue](https://github.com/soleil-colza/APIRequestShowcase/issues/1) **
+Currently, the code snippets for `KtorExample.kt` and `KtorfitExample.kt` run and return the desired image URL, but output a Kotlin compiler plugin error. I am about to investigate this on [this issue](https://github.com/soleil-colza/APIRequestShowcase/issues/1)
 
 ---
 
