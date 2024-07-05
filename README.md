@@ -12,10 +12,73 @@ Any contributions are always much welcomed!!🫶🏻
 Ktor is an asynchronous and lightweight web framework for Kotlin. 
 ktor/KtorExample.kt showcases how to make a request to the PokeAPI using Ktor.
 
+```
+fun main() {
+    val client = HttpClient(CIO) {
+        install(JsonFeature) {
+            serializer = KotlinxSerializer()
+        }
+    }
+
+    runBlocking {
+        val response: HttpResponse = client.get("https://pokeapi.co/api/v2/pokemon/1")
+        println(response.readText())
+    }
+}
+```
+
 ### Ktorfit
 Ktorfit is a library that enables Retrofit-like API requests using Ktor. 
 ktorfit/KtorfitExample.kt showcases how to make a request to the PokeAPI using Ktorfit.
 
+```
+interface PokeApiService {
+    @GET("pokemon/{id}")
+    suspend fun getPokemon(@Path("id") id: Int): String
+}
+
+fun main() {
+    val client = HttpClient(CIO) {
+        install(JsonFeature) {
+            serializer = KotlinxSerializer()
+        }
+    }
+
+    val ktorfit = Ktorfit.Builder()
+        .httpClient(client)
+        .baseUrl("https://pokeapi.co/api/v2/")
+        .build()
+
+    val service = ktorfit.create<PokeApiService>()
+
+    runBlocking {
+        val response = service.getPokemon(1)
+        println(response)
+    }
+}
+```
+
 ### Retrofit
 Retrofit is a type-safe HTTP client for Android and Java. 
 retrofit/RetrofitExample.kt showcases how to make a request to the PokeAPI using Retrofit.
+
+```
+interface PokeApiService {
+    @GET("pokemon/{id}")
+    suspend fun getPokemon(@Path("id") id: Int): String
+}
+
+fun main() {
+    val retrofit = Retrofit.Builder()
+        .baseUrl("https://pokeapi.co/api/v2/")
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+
+    val service = retrofit.create(PokeApiService::class.java)
+
+    runBlocking {
+        val response = service.getPokemon(1)
+        println(response)
+    }
+}
+```
