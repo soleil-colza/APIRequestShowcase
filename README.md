@@ -1,8 +1,5 @@
 # API Request Showcase
 
-> [!WARNING]
-> Currently, the code snippets for `KtorExample.kt` and `KtorfitExample.kt` run and return the desired image URL, but output a Kotlin compiler plugin error. I am about to investigate this on [this issue](https://github.com/soleil-colza/APIRequestShowcase/issues/1)
-
 ## Overview
 This repository is a sample project demonstrating how to fetch Pokémon images from the PokeAPI using Ktor, Ktorfit, and Retrofit. 
 It highlights the features of each library and shows how to implement API requests with them.
