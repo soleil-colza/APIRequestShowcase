@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.compose.compiler)
     id("com.google.devtools.ksp")
     id("de.jensklingenberg.ktorfit")
+    kotlin("plugin.serialization") version "2.0.0"
 }
 
 android {
