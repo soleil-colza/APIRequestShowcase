@@ -14,7 +14,7 @@ import kotlinx.serialization.json.Json
 @Serializable
 data class PokemonResponse(val sprites: Sprites)
 @Serializable
-data class Sprites(val front_default: String)
+data class Sprites(val frontDefault: String)
 
 interface PokeApiService {
     @GET("pokemon/{id}")
@@ -41,7 +41,7 @@ fun main() {
     runBlocking {
         try {
             val response = service.getPokemon(1)
-            println("Pokemon Image URL: ${response.sprites.front_default}")
+            println("Pokemon Image URL: ${response.sprites.frontDefault}")
         } catch (e: Exception) {
             println("Error: ${e.message}")
         } finally {
